@@ -1,36 +1,50 @@
 <!doctype html>
 <html lang="en">
-
   <head>
     <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <link rel="icon" type="image/png" href="%VITE_APP_LOGO%" />
-    <link rel="apple-touch-icon" href="%VITE_APP_LOGO%" />
-    <title>%VITE_APP_TITLE%</title>
+
+    <!-- Default icons (safe). JS below will override if env vars exist -->
+    <link id="favicon" rel="icon" type="image/png" href="/favicon.ico" />
+    <link id="apple-icon" rel="apple-touch-icon" href="/favicon.ico" />
+
+    <title>DrPal · Skin & Face Analysis</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <script type="module">
+      // Optional title/logo from env
+      const appTitle = import.meta.env.VITE_APP_TITLE;
+      const appLogo  = import.meta.env.VITE_APP_LOGO;
+
+      if (appTitle) document.title = String(appTitle);
+      if (appLogo) {
+        const url = String(appLogo);
+        const fav = document.getElementById('favicon');
+        const ap  = document.getElementById('apple-icon');
+        if (fav) fav.setAttribute('href', url);
+        if (ap)  ap.setAttribute('href', url);
+      }
+
+      // Optional: Umami analytics (only if both vars exist)
+      const endpoint   = import.meta.env.VITE_ANALYTICS_ENDPOINT;
+      const websiteId  = import.meta.env.VITE_ANALYTICS_WEBSITE_ID;
+      if (endpoint && websiteId) {
+        const s = document.createElement('script');
+        s.defer = true;
+        s.src = `${String(endpoint).replace(/\/+$/, '')}/umami`;
+        s.setAttribute('data-website-id', String(websiteId));
+        document.head.appendChild(s);
+      }
+    </script>
   </head>
 
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-   <!-- Remove the old analytics <script> with %VITE_*% -->
-<script type="module">
-  const endpoint = import.meta.env.VITE_ANALYTICS_ENDPOINT;
-  const websiteId = import.meta.env.VITE_ANALYTICS_WEBSITE_ID;
-
-  if (endpoint && websiteId) {
-    const s = document.createElement('script');
-    s.defer = true;
-    s.src = `${String(endpoint).replace(/\/+$/, '')}/umami`;
-    s.setAttribute('data-website-id', String(websiteId));
-    document.head.appendChild(s);
-  }
-</script>
-
   </body>
-
 </html>
