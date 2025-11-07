@@ -1,0 +1,39 @@
+# Project TODO
+
+- [x] Database schema for analysis results and user context
+- [x] Persian RTL support and font integration
+- [x] Photo upload interface with preview
+- [x] Pre-analysis questionnaire (5 questions in Persian)
+- [x] Backend LLM integration with vision analysis
+- [x] DrPal branding and logo integration
+- [x] Analysis result display with Persian formatting
+- [x] Skin health score gauge visualization
+- [x] Regional analysis bar charts (4 regions)
+- [x] Age group leaderboard comparison
+- [x] Progress tracking system
+- [x] Referral reward system UI
+- [x] DrPal app download CTAs
+- [x] Image quality validation
+- [ ] Analysis history for logged-in users
+- [x] Test complete analysis flow
+- [x] Create checkpoint
+- [x] Update DrPal app store links (Google Play and Apple App Store)
+- [x] Add introduction video to home page
+- [x] Add region severity bar chart
+- [x] Add skin health score gauge chart
+- [x] Add aging indicators radar chart
+- [x] Add leaderboard comparison chart
+- [x] Add progress tracking line chart
+- [x] Add multilingual support (Persian, Arabic, English)
+- [x] Language selector on home page
+- [x] Integrate Tap payment API
+- [x] Payment flow for Arabic and English versions
+- [x] Master test code for payment testing
+- [x] Referral code system
+- [x] Referral rewards (1 free analysis per referral)
+- [ ] Share button functionality
+- [ ] Download button functionality
+- [x] Create payment checkout page component
+- [x] Implement payment flow in Home.tsx
+- [x] Add referralCode parameter to analysis
+- [ ] Test Tap payment integration
